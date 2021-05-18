@@ -1,0 +1,6 @@
+#@package _group_
+file_path: data/accidents_utility_spmf.txt
+delta: 0.13
+used: 0.1
+head: 0.
+shuffle_db: False

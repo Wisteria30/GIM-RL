@@ -1,0 +1,12 @@
+#@package _group_
+name: q
+optimizer: radam
+network: default
+batch_size: 512
+gamma: 0.95
+eps_start: 0.9
+eps_end: 0.05
+eps_decay: 200
+test_eps_start: 0.05
+test_eps_end: 0.05
+test_eps_decay: 1

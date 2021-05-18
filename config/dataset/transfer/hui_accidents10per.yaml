@@ -1,0 +1,12 @@
+#@package _group_
+file_path: data/accidents_utility_spmf.txt
+
+train_delta: 0.13
+train_used: 0.06
+train_head: 0.
+train_shuffle_db: False
+
+test_delta: 0.135
+test_used: 0.04
+test_head: 0.06
+test_shuffle_db: False

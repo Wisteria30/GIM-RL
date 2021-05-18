@@ -1,0 +1,7 @@
+#@package _group_
+file_path: data/pumsb.txt
+sup_delta: 0.9
+conf_delta: 0.8
+used: 1.
+head: 0.
+shuffle_db: False

@@ -1,0 +1,12 @@
+#@package _group_
+file_path: data/chess.txt
+
+train_delta: 0.95
+train_used: 0.6
+train_head: 0.
+train_shuffle_db: False
+
+test_delta: 0.8
+test_used: 0.4
+test_head: 0.6
+test_shuffle_db: False

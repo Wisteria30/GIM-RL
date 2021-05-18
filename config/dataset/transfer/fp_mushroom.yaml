@@ -1,0 +1,12 @@
+#@package _group_
+file_path: data/mushrooms.txt
+
+train_delta: 0.5
+train_used: 0.6
+train_head: 0.
+train_shuffle_db: False
+
+test_delta: 0.55
+test_used: 0.4
+test_head: 0.6
+test_shuffle_db: False

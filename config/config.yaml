@@ -1,0 +1,55 @@
+defaults:
+  # Dataset settings
+  # HUI-Mining: chess, mushroom, accidents10per, connect (db_utility)
+  - dataset/hui: empty
+  # FI-Mining: chess, mushroom, pumsb, connect (pasquier99)
+  - dataset/fp: empty
+  # AR-Mining: chess, mushroom, pumsb, connect (igb)
+  - dataset/ar: empty
+  # Transfer: hui_{HUI-Mining dataset}, fp_{FI-Mining dataset}, ar_{AR-Mining dataset}
+  - dataset/transfer: empty
+
+  # Agent settings: q(state), qandutility(fusion), random, egreedy(state-e), probability(state-prob), max, randombv
+  - agent: qandutility
+
+  # hydra settings
+  - hydra/launcher: joblib
+
+hydra:
+  job_logging:
+    version: 1
+    disable_existing_loggers: false
+
+# General settings
+# GPU number
+gpu: 0
+# seed
+seed: 0
+# MLflow settings
+experiments: 'gim-rl'
+content: ''
+user: ''
+commit: ''
+
+# Environment　settings
+env:
+  plus_reward: 100
+  minus_reward: -1
+  max_steps: 500
+  cache_limit: 1000000
+# Model settings
+model:
+  hidden_1: 512
+  hidden_2: 256
+  hidden_3: 128
+# Train settings
+interaction:
+  target_update: 5
+  episodes: 500
+  test_episodes: 500
+  replaymemory_size: 10000
+
+# Transfer settings
+# test: True, random
+test: True
+load_model: ''

@@ -1,0 +1,6 @@
+#@package _group_
+file_path: data/connect.txt
+delta: 0.95
+used: 1.
+head: 0.
+shuffle_db: False

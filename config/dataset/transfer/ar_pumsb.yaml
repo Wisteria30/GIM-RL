@@ -1,0 +1,14 @@
+#@package _group_
+file_path: data/pumsb.txt
+
+train_sup_delta: 0.92
+train_conf_delta: 0.8
+train_used: 0.6
+train_head: 0.
+train_shuffle_db: False
+
+test_sup_delta: 0.93
+test_conf_delta: 0.8
+test_used: 0.4
+test_head: 0.6
+test_shuffle_db: False

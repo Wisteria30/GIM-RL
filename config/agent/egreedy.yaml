@@ -1,0 +1,8 @@
+#@package _group_
+name: egreedy
+eps_start: 0.9
+eps_end: 0.05
+eps_decay: 200
+test_eps_start: 0.05
+test_eps_end: 0.05
+test_eps_decay: 1

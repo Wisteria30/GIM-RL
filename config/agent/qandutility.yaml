@@ -1,0 +1,20 @@
+#@package _group_
+name: qandutility
+optimizer: radam
+network: default
+batch_size: 512
+gamma: 0.95
+eps_start: 0.1
+eps_end: 0.1
+eps_decay: 1
+test_eps_start: 0.1
+test_eps_end: 0.1
+test_eps_decay: 1
+# Balancing Q and Utility in Action Value
+lambda_start: 0.999
+lambda_end: 0.5
+lambda_decay: 200
+test_lambda_start: 0.999
+test_lambda_end: 0.5
+test_lambda_decay: 200
+random_utility_per: 0.02

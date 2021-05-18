@@ -1,0 +1,6 @@
+#@package _group_
+file_path: data/contextPasquier99.txt
+delta: 0.4
+used: 1.
+head: 0.
+shuffle_db: False
