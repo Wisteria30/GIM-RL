@@ -2,17 +2,22 @@
 *.pub
 *.idea/
 log/*
-!.gitkeep
 mlruns/
 multirun/
 secret.json
 outputs/
 .vscode/
 data/*
+*.npy
+models/
+wandb/
+sweep.yml
+.netrc
+checkpoint.pt
 !DB_Utility.txt
 !contextIGB.txt
 !contextPasquier99.txt
-
+!.gitkeep
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

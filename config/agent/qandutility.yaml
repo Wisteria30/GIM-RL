@@ -1,6 +1,7 @@
 #@package _group_
 name: qandutility
 optimizer: radam
+lr: 0.001
 network: default
 batch_size: 512
 gamma: 0.95

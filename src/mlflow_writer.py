@@ -111,7 +111,7 @@ class MlflowWriter:
                     )
                 ),
                 "dataset": run_result_dict["data"]["params"][
-                    f"dataset.{type}.file_path"
+                    f"{type}.file_path"
                 ]
                 .replace("data/", "")
                 .replace(".txt", ""),

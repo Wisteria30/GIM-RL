@@ -1,13 +1,13 @@
 defaults:
   # Dataset settings
   # HUI-Mining: chess, mushroom, accidents10per, connect (db_utility)
-  - dataset/hui: empty
+  - hui: empty
   # FI-Mining: chess, mushroom, pumsb, connect (pasquier99)
-  - dataset/fp: empty
+  - fp: empty
   # AR-Mining: chess, mushroom, pumsb, connect (igb)
-  - dataset/ar: empty
+  - ar: empty
   # Transfer: hui_{HUI-Mining dataset}, fp_{FI-Mining dataset}, ar_{AR-Mining dataset}
-  - dataset/transfer: empty
+  - transfer: empty
 
   # Agent settings: q(state), qandutility(fusion), random, egreedy(state-e), probability(state-prob), max, randombv
   - agent: qandutility
@@ -37,6 +37,7 @@ env:
   minus_reward: -1
   max_steps: 500
   cache_limit: 1000000
+  model_path: 'models/hui/mlp/chess_utility_1000000.pth'
 # Model settings
 model:
   hidden_1: 512

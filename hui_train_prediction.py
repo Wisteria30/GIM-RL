@@ -9,7 +9,7 @@ import wandb
 from omegaconf import DictConfig
 from tqdm import tqdm
 
-from src.env import HighUtilityItemsetsMining
+from src.env import HighUtilityItemsetsPrediction
 from src.mlflow_writer import MlflowWriter
 from src.model import ReplayMemory
 from src.preprocessing import set_agent, set_common_tag, set_seed
@@ -26,12 +26,14 @@ def main(cfg: DictConfig):
     # writer = MlflowWriter(experiment_name, tracking_uri)
     # writer.log_params_from_omegaconf_dict(cfg)
 
-    # tag settting
-    set_common_tag(writer, cfg)
+    # # tag settting
+    # set_common_tag(writer, cfg)
     # seed setting
     set_seed(cfg.seed)
 
-    env = HighUtilityItemsetsMining(
+    device = torch.device(f"cuda:{cfg.gpu}" if torch.cuda.is_available() else "cpu")
+
+    env = HighUtilityItemsetsPrediction(
         delta=cfg.hui.delta,
         data_path=os.path.join(original_cwd, cfg.hui.file_path),
         used=cfg.hui.used,
@@ -41,10 +43,11 @@ def main(cfg: DictConfig):
         minus_reward=cfg.env.minus_reward,
         max_steps=cfg.env.max_steps,
         cache_limit=cfg.env.cache_limit,
+        model_path=os.path.join(original_cwd, cfg.env.model_path),
+        device=device
     )
     target_update = cfg.interaction.target_update
     episodes = cfg.interaction.episodes
-    device = torch.device(f"cuda:{cfg.gpu}" if torch.cuda.is_available() else "cpu")
     agent = set_agent(env, cfg)
     memory = ReplayMemory(cfg.interaction.replaymemory_size)
     total_hui = set()
@@ -85,17 +88,19 @@ def main(cfg: DictConfig):
     # Reinsert found itemsets into env to format them
     env.shui = total_hui
     env.render()
-    model = agent.get_model()
+    print("SHUI")
+    print(env.shui)
+    # model = agent.get_model()
 
-    if model is not None:
-        writer.log_torch_model(model)
-    writer.set_terminated()
-    writer.post_slack("hui", os.path.join(os.getcwd(), ".hydra/overrides.yaml"))
-    writer.log_artifact(os.path.join(os.getcwd(), ".hydra/config.yaml"))
-    writer.log_artifact(os.path.join(os.getcwd(), ".hydra/hydra.yaml"))
-    writer.log_artifact(os.path.join(os.getcwd(), ".hydra/overrides.yaml"))
-    writer.log_artifact(os.path.join(os.getcwd(), "hui_train.log"))
-    writer.log_artifact(os.path.join(os.getcwd(), "result.txt"))
+    # if model is not None:
+    #     writer.log_torch_model(model)
+    # writer.set_terminated()
+    # writer.post_slack("hui", os.path.join(os.getcwd(), ".hydra/overrides.yaml"))
+    # writer.log_artifact(os.path.join(os.getcwd(), ".hydra/config.yaml"))
+    # writer.log_artifact(os.path.join(os.getcwd(), ".hydra/hydra.yaml"))
+    # writer.log_artifact(os.path.join(os.getcwd(), ".hydra/overrides.yaml"))
+    # writer.log_artifact(os.path.join(os.getcwd(), "hui_train.log"))
+    # writer.log_artifact(os.path.join(os.getcwd(), "result.txt"))
 
 
 if __name__ == "__main__":
