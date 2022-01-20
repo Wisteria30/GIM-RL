@@ -111,11 +111,15 @@ It is also recommended to run these source codes on a GPU, but if a GPU is unava
 If you found this code useful, please cite the following paper:
 
 ```
-@article{Fujioka_GIM,
-  author = {Fujioka, Kazuma and Shirahama, Kimiaki},
-  title = {Generic Itemset Mining Based on Reinforcement Learning},
-  journal = {arXiv e-prints, arXiv:2105.07753},
-  year = {2021}
+@ARTICLE{9676615,
+  author={Fujioka, Kazuma and Shirahama, Kimiaki},
+  journal={IEEE Access},
+  title={Generic Itemset Mining Based on Reinforcement Learning},
+  year={2022},
+  volume={10},
+  number={},
+  pages={5824-5841},
+  doi={10.1109/ACCESS.2022.3141806}
 }
 ```
 
